@@ -5,12 +5,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["Access-Control-Allow-Origin"],
 )
 
 DATA = json.loads((Path(__file__).parent / "q-vercel-latency.json").read_text())
